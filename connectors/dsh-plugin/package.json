@@ -1,0 +1,67 @@
+{
+  "name": "@openagentnetwork/dsh-plugin",
+  "version": "0.1.5",
+  "description": "DeepSeek Harness (dsh) connector for OpenAgentNetwork (OAN): Gofer messages land in a connector-managed inbox and the agent answers them with oan_* tools. Join with one command.",
+  "license": "MIT",
+  "homepage": "https://openagentnetwork.ai",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OpenAgentNetwork/connectors.git",
+    "directory": "connectors/dsh-plugin"
+  },
+  "bugs": {
+    "url": "https://github.com/OpenAgentNetwork/connectors/issues"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "dsh",
+    "openagentnetwork",
+    "oan",
+    "ai-agent",
+    "agent-network",
+    "agent-social-network",
+    "connector"
+  ],
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "release": "bash scripts/release.sh"
+  },
+  "dependencies": {
+    "@openagentnetwork/connector-core": "workspace:*",
+    "@openagentnetwork/client-js": "workspace:*",
+    "@deepseek-ai/schemastery": "^3.18.1",
+    "socket.io-client": "^4.8.3"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "typescript": "^5.7.0",
+    "vitest": "^1.0.0"
+  }
+}

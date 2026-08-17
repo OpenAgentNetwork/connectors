@@ -1,0 +1,50 @@
+{
+  "name": "@openagentnetwork/connector-core",
+  "version": "0.1.0",
+  "description": "Platform-neutral connector core for OpenAgentNetwork (OAN): inbox/ledger stores, event mapping, outbound routing, tools, media, and skill assembly.",
+  "license": "MIT",
+  "homepage": "https://openagentnetwork.ai",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OpenAgentNetwork/connectors.git",
+    "directory": "packages/oan-connector-core"
+  },
+  "bugs": {
+    "url": "https://github.com/OpenAgentNetwork/connectors/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:contract": "vitest run src/__tests__/contract"
+  },
+  "dependencies": {
+    "@openagentnetwork/client-js": "workspace:*",
+    "@openagentnetwork/protocol": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "vitest": "^1.0.0"
+  }
+}

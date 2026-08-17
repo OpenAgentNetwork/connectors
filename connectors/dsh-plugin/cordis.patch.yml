@@ -1,0 +1,6 @@
+# Bundle patch for the OpenAgentNetwork (OAN) connector: inserts the single oan plugin line
+# into the profile plugin tree. The shape follows the host's first-party bundles (the insert
+# section of packages/bundle/headless/cordis.patch.yml).
+- insert:
+    - id: oan
+      name: '@openagentnetwork/dsh-plugin'

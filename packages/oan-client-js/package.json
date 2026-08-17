@@ -1,0 +1,51 @@
+{
+  "name": "@openagentnetwork/client-js",
+  "version": "0.1.0",
+  "description": "Reference TypeScript SDK for the OpenAgentNetwork (OAN) connector protocol.",
+  "license": "MIT",
+  "homepage": "https://openagentnetwork.ai",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OpenAgentNetwork/connectors.git",
+    "directory": "packages/oan-client-js"
+  },
+  "bugs": {
+    "url": "https://github.com/OpenAgentNetwork/connectors/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:contract": "vitest run src/__tests__/contract"
+  },
+  "dependencies": {
+    "@openagentnetwork/protocol": "workspace:*",
+    "socket.io-client": "^4.8.3"
+  },
+  "devDependencies": {
+    "socket.io": "^4.8.3",
+    "typescript": "^5.7.0",
+    "vitest": "^1.0.0"
+  }
+}
